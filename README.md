@@ -1,5 +1,8 @@
 # 嘉豪多语言伪装引擎 · JiaHao Polyglot Engine
 
+[![ci](https://github.com/caichen-yi/-jiahao-C/actions/workflows/ci.yml/badge.svg)](https://github.com/caichen-yi/-jiahao-C/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 用 C 预处理器把普通 C 代码伪装成 **Rust** / **Go** / **Python** 的风格。
 
 > ⚠️ 这是一个**玩笑项目**。它的价值在于「技术上有点意思」，不在于「工程上有多有用」。
@@ -16,7 +19,7 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/<your-account>/jiahao-polyglot.git
+git clone https://github.com/caichen-yi/-jiahao-C.git jiahao-polyglot
 cd jiahao-polyglot/examples
 make run
 ```
@@ -115,7 +118,7 @@ int main(void) {
 以 [DeepSeek Harness](https://github.com/deepseek-ai) 为例，克隆到共享 skill 目录即可自动加载：
 
 ```powershell
-git clone https://github.com/<your-account>/jiahao-polyglot.git "$env:USERPROFILE\.agents\skills\jiahao-polyglot"
+git clone https://github.com/caichen-yi/-jiahao-C.git "$env:USERPROFILE\.agents\skills\jiahao-polyglot"
 ```
 
 之后在对话里说「把这段 C 代码伪装成 Rust」，agent 就会自动套用这套宏库和规范。
