@@ -1,0 +1,17 @@
+# 编译产物
+*.o
+*.obj
+*.exe
+examples/demo_rust
+examples/demo_go
+examples/demo_py
+
+# 编辑器 / IDE
+.vscode/
+.idea/
+*.swp
+*.user
+
+# 操作系统
+Thumbs.db
+.DS_Store

@@ -1,0 +1,41 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: ${{ matrix.cc }} / ${{ matrix.std }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        cc: [gcc, clang]
+        std: [c99, c11, c17]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 显示编译器版本
+        run: ${{ matrix.cc }} --version
+
+      - name: 编译并运行全部示例
+        working-directory: examples
+        run: |
+          make run \
+            CC=${{ matrix.cc }} \
+            CFLAGS="-std=${{ matrix.std }} -O1 -Wall -Wextra -Werror -I../include"
+
+  # 额外跑一轮 C2x：确认没有依赖过时的写法
+  c2x:
+    name: gcc / c2x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 编译并运行
+        working-directory: examples
+        run: |
+          make run CC=gcc \
+            CFLAGS="-std=c2x -O1 -Wall -Wextra -Werror -I../include"
